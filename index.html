@@ -334,7 +334,59 @@ html body #app#app#app .zPr.rm4 .rmG .gl{display:flex;flex-wrap:wrap;align-items
 #lkForm .lkHide{display:none!important}
 #lkForm .gbtn[disabled]{opacity:.7;cursor:progress}
 </style>
-</head>
+<style id="sideWarm">/* [v1117] 왼쪽 메뉴 : 웜 그레이 바탕, 주황 선택, 아이콘 없음, 정보 칸 위선 = 결과표 띠 높이 */
+html:root body aside.side,html:root body .side{background:linear-gradient(180deg,#EAE4DB 0%,#DDD5C9 100%)!important;border-right:1px solid #CFC5B6!important}
+html:root body #app#app#app .side .slogo span,html:root body .side .slogo span{font-size:19px!important;font-weight:900!important;letter-spacing:-0.02em!important;color:#0F172A!important}
+@media (min-width:761px){html:root body #app#app#app .side .slogo,html:root body .side .slogo{height:82px!important;margin-bottom:0!important;display:flex!important;align-items:center!important}}
+html:root body #app#app#app .scard{background:#FFFFFF!important;border:1px solid #CFC5B6!important;border-top:3px solid #F26A1B!important;border-radius:0!important;box-shadow:0 8px 20px rgba(15,23,42,0.10)!important}
+html:root body #app#app#app .scard .nm{color:#0F172A!important;font-weight:900!important}
+html:root body #app#app#app .scard .no{color:#E8601C!important;font-weight:900!important}
+html:root body #app#app#app .scard .srow{border-top:1px solid #E3E8EF!important}
+html:root body #app#app#app .scard .srow span{color:#1E293B!important;font-weight:800!important}
+html:root body #app#app#app .scard .srow b{color:#0F172A!important;font-weight:900!important}
+html:root body #app#app#app .nv svg,html:root body .side .nv svg{display:none!important}
+html:root body #app#app#app .nv,html:root body .side .nv{color:#111827!important;font-size:16px!important;font-weight:800!important;padding:13px 16px!important}
+html:root body #app#app#app .nv:hover{background:rgba(15,23,42,0.06)!important;color:#0F172A!important}
+html:root body #app#app#app .nv.on,html:root body .side .nv.on{background:linear-gradient(90deg,#F27A2A 0%,#DE5A0E 100%)!important;color:#FFFFFF!important;box-shadow:0 6px 14px rgba(222,90,14,0.30)!important}
+html:root body #app#app#app .sfoot,html:root body .side .sfoot{font-size:13.5px!important;font-weight:800!important;line-height:1.65!important;color:#1E293B!important;border-top:2px solid #CFC5B6!important;padding-top:14px!important}
+@media (min-width:761px){
+html:root body #app#app#app .side .nav{gap:8px!important}
+html:root body #app#app#app .side .nv{background:#FFFFFF!important;border:1px solid #BFB3A1!important;border-bottom:3px solid #B3A690!important;border-radius:6px!important;padding:13px 16px 11px!important;cursor:pointer!important;box-shadow:none!important;transition:background .12s,border-color .12s,transform .08s!important}
+html:root body #app#app#app .side .nv:hover{background:#FFF4EA!important;border-color:#F27A2A!important;color:#0F172A!important}
+html:root body #app#app#app .side .nv:active{transform:translateY(2px)!important;border-bottom-width:1px!important;padding-bottom:13px!important}
+html:root body #app#app#app .side .nv.on{background:#E8641A!important;border-color:#C9520F!important;border-bottom-color:#A8430B!important;color:#FFFFFF!important;box-shadow:none!important}
+}
+@media (max-width:760px){
+html:root body #app#app#app .side .nav{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:8px!important;margin-top:12px!important}
+html:root body #app#app#app .side .nv{grid-column:span 2!important;justify-content:center!important;text-align:center!important;background:#FFFFFF!important;border:1px solid #BFB3A1!important;border-bottom:3px solid #B3A690!important;border-radius:6px!important;padding:12px 4px 10px!important;font-size:15px!important;font-weight:800!important;color:#111827!important;letter-spacing:-0.03em!important;box-shadow:none!important;min-height:48px!important;white-space:nowrap!important}
+html:root body #app#app#app .side .nv:nth-child(n+4){grid-column:span 3!important}
+html:root body #app#app#app .side .nv:active{transform:translateY(2px)!important;border-bottom-width:1px!important;padding-bottom:12px!important}
+html:root body #app#app#app .side .nv.on{background:#E8641A!important;border-color:#C9520F!important;border-bottom-color:#A8430B!important;color:#FFFFFF!important;box-shadow:none!important}
+}
+html:root body #app#app#app .mright .cmpg,html:root body .cddTxt em,html:root body .cddO em{color:#1E293B!important}
+@media (max-width:374px){html:root body #app#app#app .side .nv{font-size:13px!important;letter-spacing:-0.05em!important;padding-left:2px!important;padding-right:2px!important}}
+/* [v1121] 아이폰(사파리)에서 표 마지막 줄이 밑선을 덮는 문제 : 줄 높이 합보다 작게 고정된 표 높이를 자동으로 */
+@media screen{html:root body:not(.pdfExport) #app#app#app .zB2,html:root body:not(.pdfExport) #app#app#app .zBf{height:auto!important}}
+</style><script id="noteFit">/* [v1119] 면담지 모바일 : A4 쪽을 화면 폭에 맞춰 축소 (표 오른쪽 잘림 방지). PDF 만들기(cap) 중과 인쇄에서는 원래 크기 */
+(function(){
+function hook(fr){try{var w=fr.contentWindow,d=fr.contentDocument;if(!w||!d||!d.body||d.__mz||!d.getElementById('doc'))return;d.__mz=1;
+ var st=d.createElement('style');st.textContent='@media screen and (max-width:860px){body:not(.cap) #doc.docw{overflow-x:hidden!important;padding-left:8px!important;padding-right:8px!important}body:not(.cap) #doc .pg{zoom:var(--mz,1)}}';d.head.appendChild(st);
+ function z(){var dd=w.document;if(!dd.body||dd.body.classList.contains('cap')||w.innerWidth>860)return 1;return Math.min(1,(w.innerWidth-16)/800);}
+ function apply(){var doc=d.getElementById('doc');if(doc)doc.style.setProperty('--mz',String(z()));}
+ if(!w.__mzp){w.__mzp=1;
+  var inDoc=function(n){if(n&&n.nodeType===3)n=n.parentNode;var doc=n&&n.ownerDocument&&n.ownerDocument.getElementById('doc');return !!(doc&&doc.contains(n));};
+  var sc=function(r){var k=z();return k===1?r:new w.DOMRect(r.x/k,r.y/k,r.width/k,r.height/k);};
+  var EP=w.Element.prototype,RP=w.Range.prototype,eg=EP.getBoundingClientRect,rg=RP.getBoundingClientRect;
+  EP.getBoundingClientRect=function(){var r=eg.call(this);return inDoc(this)?sc(r):r;};
+  RP.getBoundingClientRect=function(){var r=rg.call(this);return inDoc(this.commonAncestorContainer)?sc(r):r;};
+  w.addEventListener('resize',function(){var doc=w.document.getElementById('doc');if(doc)doc.style.setProperty('--mz',String(z()));});
+ }
+ apply();new w.MutationObserver(apply).observe(d.body,{attributes:true,attributeFilter:['class']});
+}catch(e){}}
+function watch(fr){if(fr.__mzw)return;fr.__mzw=1;fr.addEventListener('load',function(){hook(fr);});hook(fr);}
+new MutationObserver(function(ms){ms.forEach(function(m){m.addedNodes.forEach(function(n){if(n.tagName==='IFRAME')watch(n);else if(n.querySelectorAll)n.querySelectorAll('iframe').forEach(watch);});});}).observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script></head>
 <body>
 <style>
 /* ============ 인쇄: 섹션당 A4 한 장 ============ */
@@ -2480,7 +2532,7 @@ html body #gate .mbRoster{border-radius:0!important;border:1.5px solid var(--zLn
     <div class="gkStat" id="gStat"><div><span>분석 대상</span><b>16,576<em>명</em></b></div>
      <div><span><kern-w class="kTw">전체 <kern-c class="kT">T</kern-c>C그룹</kern-w></span><b>1,578<em>명</em></b></div>
      <div><span>진단 항목</span><b>18<em>개 · 항목당 10점</em></b></div></div>
-    <div class="gcredit">영업교육운영파트 · 제작 신현모 전임 <span class="gVer" style="margin-left:10px;font-size:11px;font-weight:600;color:#6A6358;letter-spacing:.02em">v1107</span></div>
+    <div class="gcredit">영업교육운영파트 · 제작 신현모 전임 <span class="gVer" style="margin-left:10px;font-size:11px;font-weight:600;color:#6A6358;letter-spacing:.02em">v1121</span></div>
   </footer>
  </div>
 </div>
